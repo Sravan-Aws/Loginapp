@@ -1,0 +1,44 @@
+Download and configure mod_jk with web server
+
+Here is the reference URL https://jeljo.wordpress.com/2013/11/23/apache-2-4-7-tomcat-7-integration/
+# cd /root
+# wget http://redrockdigimark.com/apachemirror/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.42-src.tar.gz
+# tar xf tomcat-connectors-1.2.42-src.tar.gz
+# cd tomcat-connectors-1.2.42-src/native
+# yum install gcc -y
+# yum install httpd-devel -y
+# ./configure --with-apxs=/bin/apxs
+# make
+# make install
+# cd /etc/httpd/conf.d
+
+ 
+we needs to create this above 2 file manually (vim modjk.conf , vim workers.properties)
+
+# vim modjk.conf
+
+LoadModule jk_module modules/mod_jk.so
+JkWorkersFile conf.d/workers.properties
+JkLogFile logs/mod_jk.log
+JkLogLevel info
+JkLogStampFormat "[%a %b %d %H:%M:%S %Y]"
+JkOptions +ForwardKeySize +ForwardURICompat -ForwardDirectories
+JkRequestLogFormat "%w %V %T"
+JkMount /LoginApp tomcatA
+JkMount /LoginApp/* tomcatA
+
+# vim workers.properties
+
+### Define workers
+worker.list=tomcatA
+### Set properties
+worker.tomcatA.type=ajp13
+worker.tomcatA.host=10.160.0.7
+worker.tomcatA.port=8009
+
+# systemctl restart httpd
+
+
+
+
+

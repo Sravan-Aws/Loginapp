@@ -1,0 +1,6 @@
+projectKey=com.sample:LoginApp
+serverUrl=http://35.244.11.27:9000
+serverVersion=6.6.0.32724
+dashboardUrl=http://35.244.11.27:9000/dashboard/index/com.sample:LoginApp
+ceTaskId=AWyymgYxQ7vfzJSj2ZwB
+ceTaskUrl=http://35.244.11.27:9000/api/ce/task?id=AWyymgYxQ7vfzJSj2ZwB
