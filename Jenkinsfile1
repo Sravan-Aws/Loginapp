@@ -4,8 +4,11 @@ git 'https://github.com/Sravan-Aws/Loginapp.git'
 }
 stage('Complile-package'){
 sh 'mvn package'
-
 }
-
+stage('Email Notification'){
+mail bcc: '', body: '''Hi Welcome to jenkins email alerts
+Thanks
+sravan''', cc: '', from: '', replyTo: '', subject: 'JenkinsJob', to: 'yadav.sravan1990@gmail.com'
+}
 }
  
