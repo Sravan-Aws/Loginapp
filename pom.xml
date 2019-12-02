@@ -31,7 +31,7 @@
 		  <repository>
 		    <id>deployment</id>
 			<name>Internal releases</name>
-		     <url>http://http://3.88.117.231:8080/</url>
+		     <url>http://http://3.81.117.177/:8080/</url>
 		  </repository>
 	</distributionManagement>
   <build>
